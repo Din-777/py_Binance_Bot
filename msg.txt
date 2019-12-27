@@ -1,0 +1,191 @@
+27-12-2019 03:28
+CQSScalpingFree
+`#ETH_WAVES` (BINANCE)
+CLOSE LONG - `0.00718600`
+? profit >= 1.50% in 2 hours
+?? #75275
+
+
+27-12-2019 03:29
+CQSScalpingFree
+`#BUSD_TRX` (BINANCE)
+BUY - `0.01334000`
+Target: `0.01354011` (1.50% profit)
+?? #75435
+? RSI: 60.52 (NEUTRAL)
+
+
+27-12-2019 03:31
+chnal123
+`#BTC_ETH` (BINANCE)
+CLOSE LONG - `0.01766270`
+? profit >= 1.50% in 3 days
+?? #74064
+
+**DCA additional information:**
+
+DCA levels applied: 1
+Original buying price: 0.01771500
+DCA averaged price: 0.01740167
+Original target: 0.01798073
+DCA target: 0.01766270
+
+
+
+
+27-12-2019 03:25
+chnal123
+?? **RECENT RESULTS** ??
+
+?? **CLOSED SIGNALS IN THE LAST 24 HOURS**:
+
+Signals closed on **BINANCE**:
+
+?? **ADX**/BTC 1.56% in 14 hours
+?? **AE**/BTC 1.54% in 14 hours
+?? **APPC**/BTC 1.50% in 1 day
+?? **ARN**/BTC 1.50% in 1 day
+?? **ATOM**/BTC 1.50% in 1 day
+?? **ATOM**/BTC 1.50% in 51 minutes
+?? **BAT**/BTC 1.51% in 10 hours
+?? **BCH**/BTC 1.50% in 1 day
+?? **BEAM**/BTC 1.50% in 20 hours
+?? **BNT**/BTC 1.51% in 6 hours
+?? **CVC**/BTC 1.67% in 1 day
+?? **DATA**/BTC 1.52% in 7 hours
+?? **DCR**/BTC 1.50% in 3 hours
+?? **DUSK**/BTC 1.62% in 1 day
+?? **DUSK**/BTC 1.56% in 52 minutes
+?? **ENJ**/BTC 1.52% in 13 hours
+?? **ERD**/BTC 3.85% in 1 day
+?? **ETC**/BTC 1.50% in 3 months
+?? **ETC**/BTC 1.50% in 4 days
+?? **ETC**/BTC 1.50% in 2 hours
+?? **ETC**/BTC 1.50% in 3 hours
+?? **FTM**/BTC 1.97% in 7 days
+?? **FTM**/BTC 1.96% in 1 day
+?? **GVT**/BTC 1.50% in 3 hours
+?? **ICX**/BTC 1.51% in 4 hours
+?? **IOTA**/BTC 1.52% in 2 hours
+?? **KAVA**/BTC 1.50% in 2 hours
+?? **LINK**/BTC 1.50% in 1 day
+?? **LOOM**/BTC 1.75% in 23 hours
+?? **LSK**/BTC 1.50% in 17 hours
+?? **MANA**/BTC 1.64% in 8 minutes
+?? **MDA**/BTC 1.51% in 1 day
+?? **MTH**/BTC 1.59% in 4 hours
+?? **NEO**/BTC 1.50% in 20 hours
+?? **ONE**/BTC 2.99% in 14 hours
+?? **ONT**/BTC 1.51% in 7 hours
+?? **PERL**/BTC 1.69% in 5 hours
+?? **PIVX**/BTC 1.52% in 4 days
+?? **PIVX**/BTC 1.52% in 1 hour
+?? **QKC**/BTC 2.44% in 22 hours
+?? **RCN**/BTC 1.60% in 3 hours
+?? **REN**/BTC 1.55% in 13 hours
+?? **RVN**/BTC 1.60% in 14 hours
+?? **STRAT**/BTC 1.50% in 3 hours
+?? **STX**/BTC 1.56% in 8 hours
+?? **TFUEL**/BTC 2.86% in 1 day
+?? **TNB**/BTC 4.35% in 1 day
+?? **TOMO**/BTC 1.51% in 38 minutes
+?? **VITE**/BTC 1.85% in 4 days
+?? **VITE**/BTC 1.81% in 13 minutes
+?? **WAVES**/BTC 1.51% in 3 hours
+?? **XTZ**/BTC 1.50% in 11 hours
+?? **EOS**/BUSD 1.50% in 1 day
+?? **AE**/ETH 1.50% in 2 days
+?? **BAT**/ETH 1.50% in 4 days
+?? **BNT**/ETH 1.50% in 2 days
+?? **CVC**/ETH 1.50% in 11 hours
+?? **ETC**/ETH 1.50% in 4 days
+?? **ETC**/ETH 1.50% in 44 minutes
+?? **IOTA**/ETH 1.50% in 2 days
+?? **LEND**/ETH 1.51% in 1 day
+?? **LOOM**/ETH 1.50% in 2 days
+?? **LSK**/ETH 1.50% in 1 day
+?? **MANA**/ETH 1.50% in 21 minutes
+?? **MDA**/ETH 1.50% in 7 days
+?? **NEO**/ETH 1.50% in 1 day
+?? **ONT**/ETH 1.50% in 1 day
+?? **QKC**/ETH 1.53% in 5 days
+?? **STORM**/ETH 1.61% in 1 day
+?? **STRAT**/ETH 1.50% in 2 hours
+?? **TNB**/ETH 1.53% in 5 days
+?? **TNB**/ETH 1.54% in 23 hours
+?? **TNT**/ETH 1.50% in 1 day
+?? **WAVES**/ETH 1.50% in 8 hours
+?? **ALGO**/TUSD 1.50% in 17 hours
+?? **BCH**/TUSD 1.50% in 2 days
+?? **ETH**/TUSD 1.50% in 15 hours
+?? **ADA**/USDC 1.50% in 1 day
+?? **ATOM**/USDC 1.50% in 2 days
+?? **BCH**/USDC 1.50% in 2 days
+?? **BTT**/USDC 1.50% in 1 day
+?? **NEO**/USDC 1.50% in 1 day
+?? **ADA**/USDT 1.50% in 4 hours
+?? **ALGO**/USDT 1.50% in 1 day
+?? **ANKR**/USDT 1.50% in 15 hours
+?? **ATOM**/USDT 1.50% in 2 days
+?? **BAT**/USDT 1.50% in 1 day
+?? **BCH**/USDT 1.50% in 2 days
+?? **BEAM**/USDT 1.50% in 23 hours
+?? **CVC**/USDT 1.50% in 1 day
+?? **DENT**/USDT 1.50% in 3 days
+?? **EOS**/USDT 1.50% in 1 day
+?? **ETC**/USDT 1.50% in 4 days
+?? **ETC**/USDT 1.50% in 2 hours
+?? **FTM**/USDT 1.50% in 1 day
+?? **IOST**/USDT 1.50% in 16 hours
+?? **ONE**/USDT 1.50% in 12 hours
+?? ONT/USDT 1.50% in 1 day
+?? PERL/USDT 1.50% in 1 hour
+?? TOMO/USDT 1.50% in 2 hours
+?? VITE/USDT 1.50% in 3 days
+?? VITE/USDT 1.50% in 1 hour
+?? WAVES/USDT 1.50% in 8 hours
+
+Signals closed on BITFINEX:
+
+?? ETC/BTC 1.50% in 3 months
+?? ETC/BTC 1.50% in 2 months
+?? ETC/BTC 1.50% in 4 days
+?? UOS/BTC 1.59% in 1 day
+
+Signals closed on BITTREX:
+
+?? BAT/BTC 1.52% in 10 hours
+?? BCH/BTC 1.50% in 13 hours
+?? BTM/BTC 1.52% in 21 hours
+?? ETC/BTC 1.50% in 3 months
+?? ETC/BTC 1.50% in 2 months
+?? ETC/BTC 1.50% in 4 days
+?? ETC/BTC 1.50% in 5 hours
+?? MUE/BTC 2.50% in 1 day
+?? NLG/BTC 2.27% in 19 hours
+?? PIVX/BTC 1.52% in 2 days
+?? PPC/BTC 1.52% in 3 days
+?? ETC/USDT 1.50% in 4 days
+?? ETH/USDT 1.50% in 4 hours
+
+Total: 194.34% in 120 signals
+
+
+27-12-2019 03:28
+CQSScalpingFree
+`#ETH_WAVES` (BINANCE)
+CLOSE LONG - `0.00718600`
+? profit >= 1.50% in 2 hours
+?? #75275
+
+
+27-12-2019 03:29
+CQSScalpingFree
+`#BUSD_TRX` (BINANCE)
+BUY - `0.01334000`
+Target: `0.01354011` (1.50% profit)
+?? #75435
+? RSI: 60.52 (NEUTRAL)
+
+
+

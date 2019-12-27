@@ -3,15 +3,18 @@ from binance.websockets import BinanceSocketManager
 
 from Temt_Utils import API_keys
 
-keys = API_keys("../keys.txt")
-client = Client(keys.binance_apiKey, keys.binance_api_secret)
+class Binance(object):
+	
+	def process_message(self, msg):
+		self.even_thandler(self, "message type: {}  message time: {}\n".format(msg[0]['e'], msg[0]['E']))
 
-balances = client.get_account()['balances']
+	def __init__(self, apiKey, api_secret, even_thandler):
+		self.client = Client(apiKey, api_secret)
+		self.balances = self.client.get_account()['balances']
 
-def process_message(msg):
-    print("message type: {}  message time: {}\n".format(msg[0]['e'], msg[0]['E']))
+		self.even_thandler = even_thandler
 
+		bm = BinanceSocketManager(self.client)
+		bm.start_ticker_socket(self.process_message)
+		bm.start()
 
-bm = BinanceSocketManager(client)
-bm.start_ticker_socket(process_message)
-bm.start()
