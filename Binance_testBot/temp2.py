@@ -1,32 +1,27 @@
-import time
-from threading import Thread
-
-from Temp_Telegram import Telegram
-from Temt_Utils import API_keys
 from Models import Orders
-from Temp_Binance import Binance
 
 orders = Orders()
 
-def telegram_msg_thandler(self, symbol, basecurrence, quotecurrence, target):
-	orders.ordersBuy[symbol] = orders.order(symbol, target)
+orders.ordersBuy['USDBTC'] = orders.order('USDBTC', 300.0)
+orders.ordersBuy['btcusd'] = orders.order('btcusd', 100.0)
+orders.ordersBuy['btceth'] = orders.order('btceth', 200.0)
 
-	print(orders)
+print(orders.ordersBuy.items())
 
-def binance_ticker_thandler(self, ticker):
-	print(ticker)
+msg = {0: {'s': 'USDBTC'} }
+
+symbol = 'ETHCVC'
+
+print('load')
+orders.loadOrders()
+
+d = orders.ordersBuy.get(symbol)
+
+if orders.ordersBuy.get('ETHCVC'):
+	print('Order BUY ' + symbol)
+
+print('clear')
+orders.ordersBuy.clear()
 
 
-keys = API_keys("../keys.txt")
-
-tele = Telegram(keys.tl_id, keys.tl_sec, telegram_msg_thandler)
-tele.start()
-while not tele.client._authorized:
-	pass
-
-print('Telegram Run')
-
-binance = Binance(keys.binance_apiKey, keys.binance_api_secret, binance_ticker_thandler) 
-print('Binance Run')
-
-print('Bot Run')
+print(orders.ordersBuy.items())
