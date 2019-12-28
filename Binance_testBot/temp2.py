@@ -6,7 +6,6 @@ from Temt_Utils import API_keys
 from Models import Orders
 from Temp_Binance import Binance
 
-
 orders = Orders()
 
 def telegram_msg_thandler(self, symbol, basecurrence, quotecurrence, target):
@@ -22,12 +21,12 @@ keys = API_keys("../keys.txt")
 
 tele = Telegram(keys.tl_id, keys.tl_sec, telegram_msg_thandler)
 tele.start()
+while not tele.client._authorized:
+	pass
+
 print('Telegram Run')
 
 binance = Binance(keys.binance_apiKey, keys.binance_api_secret, binance_ticker_thandler) 
 print('Binance Run')
 
-while 1:
-	pass
-
-print('ads')
+print('Bot Run')

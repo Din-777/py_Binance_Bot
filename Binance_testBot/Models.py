@@ -7,3 +7,10 @@ class Orders(object):
 		self.ordersBuy = {}
 		self.ordersSell = {}
 		pass
+
+class Tickers(object):
+
+	def __init__(self):
+		self.ticker = namedtuple('Ticker', 'symbol bid ask')
+		self.tickers = {}
+		pass

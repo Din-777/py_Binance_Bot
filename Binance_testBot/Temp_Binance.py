@@ -6,7 +6,7 @@ from Temt_Utils import API_keys
 class Binance(object):
 	
 	def process_message(self, msg):
-		self.even_thandler(self, "message type: {}  message time: {}\n".format(msg[0]['e'], msg[0]['E']))
+		self.even_thandler(self, msg)
 
 	def __init__(self, apiKey, api_secret, even_thandler):
 		self.client = Client(apiKey, api_secret)
