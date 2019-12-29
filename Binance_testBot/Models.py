@@ -5,10 +5,22 @@ import csv
 class Orders(object):
 
 	def __init__(self):
-		self.order = namedtuple('Order', 'symbol price')
+		self.Order = namedtuple('Order', 'symbol originalBuyPrice originalTarget DCA1Buy DCA2Buy DCAAverage DCATarget quantity DCALivel')
 		self.ordersBuy = {}
 		self.ordersSell = {}
 		pass
+
+	def newOrder(self, symbol, originalBuyPrice, quantity):
+
+		self.originalTarget = originalBuyPrice + ((originalBuyPrice / 100.0) * 1.5)
+		self.DCA1Buy = originalBuyPrice - ((originalBuyPrice / 100.0) * 2.5)
+		self.DCA2Buy = originalBuyPrice - ((originalBuyPrice / 100.0) * 5.0)
+		self.DCALivel = 0
+		self.DCAAverage = originalBuyPrice
+		self.DCATarget = self.originalTarget
+
+		self.order = Order(symbol, originalBuyPrice, originalTarget, DCA1Buy, DCA2Buy, DCAAverage, DCATarget, quantity, DCALivel)
+		return self.order
 
 	def saveOrders(self, filename = "../ordersBuy.csv"):
 		with open(filename, 'w') as f:

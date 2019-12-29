@@ -11,24 +11,20 @@ tickers = Tickers()
 
 def telegram_msg_thandler(self, symbol, basecurrence, quotecurrence, target):
 	symbol = quotecurrence + basecurrence
-	orders.ordersBuy[symbol] = orders.order(symbol, target)
+	orders.ordersBuy[symbol] = orders.newOrder(symbol=symbol, originalBuyPrice=10, quantity=10)
 	orders.saveOrder(orders.ordersBuy[symbol])
 	print(orders)
 
 def binance_ticker_thandler(self, msg):
-	tickers.tickers.clear()
-	for line in msg:
-		#tickers.tickers[line['s']] = tickers.ticker(line['s'], float(line['a']), float(line['b']))
-		symbol = line['s']
-		ask = line['a']
-		bid = line['b']
+	for ticker in msg:
+		symbol = ticker['s']
+		ask = ticker['a']
+		bid = ticker['b']
 
-		if orders.ordersBuy.get(symbol):
-			print('Order BUY ' + symbol)
-
-
-
-	#print('Symbol {} Bid {} Ask {}'.format(msg[0]['s'], msg[0]['b'], msg[0]['a']))
+		order = orders.ordersBuy.get(symbol)
+		if order:			
+			print(order.price)
+			print(order.price)
 
 
 keys = API_keys("../keys.txt")

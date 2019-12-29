@@ -1,27 +1,20 @@
-from Models import Orders
 
-orders = Orders()
+from collections import namedtuple
+Order = namedtuple('Order', 'symbol originalBuyPrice originalTarget DCA1Buy DCA2Buy DCAAverage DCATarget quantity DCALivel')
 
-orders.ordersBuy['USDBTC'] = orders.order('USDBTC', 300.0)
-orders.ordersBuy['btcusd'] = orders.order('btcusd', 100.0)
-orders.ordersBuy['btceth'] = orders.order('btceth', 200.0)
+def newOrder(symbol, originalBuyPrice, quantity):
 
-print(orders.ordersBuy.items())
+	originalTarget = originalBuyPrice + ((originalBuyPrice / 100.0) * 1.5)
+	DCA1Buy = originalBuyPrice - ((originalBuyPrice / 100.0) * 2.5)
+	DCA2Buy = originalBuyPrice - ((originalBuyPrice / 100.0) * 5.0)
+	DCALivel = 0
+	DCAAverage = originalBuyPrice
+	DCATarget = originalTarget
 
-msg = {0: {'s': 'USDBTC'} }
-
-symbol = 'ETHCVC'
-
-print('load')
-orders.loadOrders()
-
-d = orders.ordersBuy.get(symbol)
-
-if orders.ordersBuy.get('ETHCVC'):
-	print('Order BUY ' + symbol)
-
-print('clear')
-orders.ordersBuy.clear()
+	order = Order(symbol, originalBuyPrice, originalTarget, DCA1Buy, DCA2Buy, DCAAverage, DCATarget, quantity, DCALivel)
+	return order
 
 
-print(orders.ordersBuy.items())
+order = newOrder('USDTBTC', 100.0, 10)
+
+print('1')

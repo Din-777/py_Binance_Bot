@@ -21,10 +21,6 @@ class Telegram(Thread):
 			mess_mess=event.message.text
 			mess_name=event.message.chat.username
 			mess_date=event.message.date
-	
-			#print(mess_date.strftime("%d-%m-%y %h:%m"))
-			#print(mess_name)
-			#print(mess_mess+"\n\n")
 
 			mess_lines = mess_mess.split('\n')
 			if mess_lines[1][:3] == 'BUY' and mess_lines[0].find('BINANCE')!=-1:
@@ -32,7 +28,8 @@ class Telegram(Thread):
 				s = self.symbol.split('_')
 				self.basecurrence = s[0]
 				self.quotecurrence = s[1]
-				self.target = float(mess_lines[1].split('`')[1])				
+				self.buy = float(mess_lines[1].split('`')[1])
+				self.target = float(mess_lines[2].split('`')[1])				
 				self.symbol = self.symbol.replace('_', '')
 
 				self.even_thandler(self, self.symbol, self.basecurrence, self.quotecurrence, self.target)
