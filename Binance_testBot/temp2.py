@@ -1,20 +1,15 @@
 
 from collections import namedtuple
-Order = namedtuple('Order', 'symbol originalBuyPrice originalTarget DCA1Buy DCA2Buy DCAAverage DCATarget quantity DCALivel')
+from Models import Orders, Tickers
 
-def newOrder(symbol, originalBuyPrice, quantity):
+orders = Orders()
+orders.ordersBuy['LTCUSDT'] = orders.newOrder('LTCUSDT', 10, 5, 1)
+orders.ordersBuy['LTCBTC'] = orders.newOrder('LTCBTC',  100, 50, 10)
 
-	originalTarget = originalBuyPrice + ((originalBuyPrice / 100.0) * 1.5)
-	DCA1Buy = originalBuyPrice - ((originalBuyPrice / 100.0) * 2.5)
-	DCA2Buy = originalBuyPrice - ((originalBuyPrice / 100.0) * 5.0)
-	DCALivel = 0
-	DCAAverage = originalBuyPrice
-	DCATarget = originalTarget
+orders.saveOrder(orders.ordersBuy['LTCUSDT'])
+orders.saveOrder(orders.ordersBuy['LTCBTC'])
 
-	order = Order(symbol, originalBuyPrice, originalTarget, DCA1Buy, DCA2Buy, DCAAverage, DCATarget, quantity, DCALivel)
-	return order
-
-
-order = newOrder('USDTBTC', 100.0, 10)
+orders.ordersBuy.clear()
+orders.loadOrders()
 
 print('1')

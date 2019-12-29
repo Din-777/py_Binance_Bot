@@ -9,11 +9,13 @@ from Models import Orders, Tickers
 orders = Orders()
 tickers = Tickers()
 
-def telegram_msg_thandler(self, symbol, basecurrence, quotecurrence, target):
+def telegram_msg_thandler(self, basecurrence, quotecurrence, buy, target):
 	symbol = quotecurrence + basecurrence
-	orders.ordersBuy[symbol] = orders.newOrder(symbol=symbol, originalBuyPrice=10, quantity=10)
-	orders.saveOrder(orders.ordersBuy[symbol])
-	print(orders)
+	order = orders.ordersBuy.get(symbol)
+	if not order:
+		self.quantity = 10.0 / buy
+		orders.ordersBuy[symbol] = orders.newOrder(symbol, buy, self.quantity, target)
+		orders.saveOrder(orders.ordersBuy[symbol])
 
 def binance_ticker_thandler(self, msg):
 	for ticker in msg:
@@ -22,9 +24,8 @@ def binance_ticker_thandler(self, msg):
 		bid = ticker['b']
 
 		order = orders.ordersBuy.get(symbol)
-		if order:			
-			print(order.price)
-			print(order.price)
+		if order:
+			if ask > order.
 
 
 keys = API_keys("../keys.txt")

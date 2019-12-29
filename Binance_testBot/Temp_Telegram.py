@@ -29,10 +29,9 @@ class Telegram(Thread):
 				self.basecurrence = s[0]
 				self.quotecurrence = s[1]
 				self.buy = float(mess_lines[1].split('`')[1])
-				self.target = float(mess_lines[2].split('`')[1])				
-				self.symbol = self.symbol.replace('_', '')
+				self.target = float(mess_lines[2].split('`')[1])
 
-				self.even_thandler(self, self.symbol, self.basecurrence, self.quotecurrence, self.target)
+				self.even_thandler(self, self.basecurrence, self.quotecurrence, self.buy, self.target)
 
 		self.client.start()
 		self.client.run_until_disconnected()
