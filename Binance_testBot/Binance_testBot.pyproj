@@ -4,14 +4,14 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>a43b3754-1a3a-42ff-88b9-80e4af3f5439</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>Binance_testBot.py</StartupFile>
+    <StartupFile>Temp.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
     <OutputPath>.</OutputPath>
     <Name>Binance_testBot</Name>
     <RootNamespace>Binance_testBot</RootNamespace>
-    <InterpreterId>Global|VisualStudio|py_Binance_Bot</InterpreterId>
+    <InterpreterId>Global|VisualStudio|env_3.7_32</InterpreterId>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <DebugSymbols>true</DebugSymbols>
@@ -43,7 +43,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <InterpreterReference Include="Global|VisualStudio|py_Binance_Bot" />
+    <InterpreterReference Include="Global|VisualStudio|env_3.7_32" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
   <!-- Uncomment the CoreCompile target to enable the Build command in

@@ -20,12 +20,15 @@ def telegram_msg_thandler(self, basecurrence, quotecurrence, buy, target):
 def binance_ticker_thandler(self, msg):
 	for ticker in msg:
 		symbol = ticker['s']
-		ask = ticker['a']
-		bid = ticker['b']
+		ask = float(ticker['a'])
+		bid = float(ticker['b'])
 
 		order = orders.ordersBuy.get(symbol)
 		if order:
-			if ask > order.
+			if orders.ordersBuy[symbol].DCALivel == 0:
+				if ask < orders.ordersBuy[symbol].originalBuyPrice:
+					print('BUY ', symbol)
+					orders.ordersBuy[symbol]=orders.ordersBuy[symbol]._replace(DCALivel=1)
 
 
 keys = API_keys("../keys.txt")
