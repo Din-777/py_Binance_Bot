@@ -9,11 +9,11 @@ order3 = Order('usdtbnb', 300.0)
 
 orders = [order1, order2, order3]
 
-print(order1.symbol)
-order1._replace(symbol='asdfg')
-print(order1.symbol)
+from telethon import TelegramClient, sync
+from Temt_Utils import API_keys
 
-import win32api 
-win32api.SetConsoleCtrlHandler(on_exit, True) 
+keys = API_keys("../keys.txt")
+client = TelegramClient('session_name', keys.tl_id, keys.tl_sec)
+client.start()
 
 print('saf')

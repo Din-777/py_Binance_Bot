@@ -12,6 +12,7 @@ session_name.session
 session_name.session-journal
 keys.txt
 env_3.7_32/
+env/
 
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
