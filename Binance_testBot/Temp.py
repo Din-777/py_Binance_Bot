@@ -1,5 +1,5 @@
 
-from collections import namedtuple
+from collections import namedtuple, OrderedDict
 
 Order = namedtuple('Order', 'symbol price')
 
@@ -19,11 +19,34 @@ client.start()
 username = 'CQSScalpingFree'
 dp = client.get_entity(username)
 
-messages = client.get_messages(username, limit=10000)
 
-msg = {}
+import pandas as pd
+messages = client.get_messages(username, limit=100)
+
+df = pd.DataFrame({})
 for m in messages:
-    msg[m.date] = m.message
+    mSplit = m.message.split('\n')
+    if mSplit[0].find('BINANCE')!=-1:
+        if mSplit[1][:3] == 'BUY':
+            symbol = mSplit[0].split(' ')[0][1:]
+            s = symbol.split('_')
+            basecurrence = s[0]
+            quotecurrence = s[1]
+            buy = float(mSplit[1][6:])
+            target = float(mSplit[2].split(' ')[1])
+            df.append(pd.Series({'side':'BUY', 'symbol':symbol, 'buyPrice':buy, 'target':target}))
+
+        #if mSplit[1][:5] == 'CLOSE':
+        #    symbol = mSplit[0].split(' ')[0][1:]
+        #    s = symbol.split('_')
+        #    basecurrence = s[0]
+        #    quotecurrence = s[1]
+        #    close = float(mSplit[1][12:])
+        #    profit = float(mSplit[2][12:16])
+        #    df[m.date] = pd.Series({'side':'CLOSE', 'symbol':symbol, 'closePrice':close, 'profit':profit})
+
+
+print(df)
 
 import pickle
 with open('..\CQS_10000msg_301219.pickle', 'wb') as f:
