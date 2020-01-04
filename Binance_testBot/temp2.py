@@ -1,15 +1,30 @@
 
 from collections import namedtuple
 from Models import Orders, Tickers
+import pandas as pd
 
-orders = Orders()
-orders.ordersBuy['LTCUSDT'] = orders.newOrder('LTCUSDT', 10, 5, 1)
-orders.ordersBuy['LTCBTC'] = orders.newOrder('LTCBTC',  100, 50, 10)
+df = pd.DataFrame([['close', 100, 0],
+				   ['buy', 101, 1],
+				   ['buy', 102, 2],
+				   ['close', 1.5, 1],
+				   ['buy', 103, 3],
+				   ['buy', 104, 4],
+				   ['close', 1.5, 4],
+				   ['buy', 105, 5],
+				   ['close', 1.5, 5]], columns=['side','target','id'])
 
-orders.saveOrder(orders.ordersBuy['LTCUSDT'])
-orders.saveOrder(orders.ordersBuy['LTCBTC'])
+df['closed'] = df.duplicated(subset = 'id', keep = 0 )
+print(df, '\n')
 
-orders.ordersBuy.clear()
-orders.loadOrders()
+dfClosed = df[df.closed == 1 ]
+print(dfClosed, '\n')
 
-print('1')
+dfOpen = df[(df.side =='buy') & (df.closed == 0)]
+print(dfOpen, '\n')
+
+sumProfitClosed = dfClosed[dfClosed.side == 'close'].sum().drop(['side', 'id'])
+print(sumProfitClosed)
+
+dfConsolidat
+
+print('end')

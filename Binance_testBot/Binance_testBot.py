@@ -33,7 +33,7 @@ def binance_ticker_thandler(self, msg):
 
 keys = API_keys("../keys.txt")
 
-tele = Telegram(keys.tl_id, keys.tl_sec, telegram_msg_thandler)
+tele = Telegram(keys.tl_id, keys.tl_sec)
 tele.start()
 while not tele.client._authorized:
 	pass
@@ -43,8 +43,10 @@ print('Telegram Run')
 orders.loadOrders()
 print('Orders Load')
 
-binance = Binance(keys.binance_apiKey, keys.binance_api_secret, binance_ticker_thandler) 
+binance = Binance(keys.binance_apiKey, keys.binance_api_secret) 
+binance.start(binance_ticker_thandler)
 print('Binance Run')
+
 
 print('Bot Run')
 
