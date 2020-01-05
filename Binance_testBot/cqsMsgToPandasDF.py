@@ -38,13 +38,20 @@ def cqsMsgToDataFrame(messages):
                 id = int(msgSplitLine[3][3:])
                 df = df.append([pd.Series([msg.date, 'close', symbol, close, profit, id])] )
 
-    df.columns = ['date', 'side', 'symbol', 'price', 'target', 'id']
+    df.index = pd.RangeIndex(len(df.index))
+    df.columns = ['date', 'side', 'symbol', 'price', 'target', 'id']    
+    df['quot'] = df.symbol.str.split('_', 1).str[0]
+    df['base'] = df.symbol.str.split('_', 1).str[1]
+    df['closed'] = df.duplicated(subset = 'id', keep = 0 )
+    df = df[['date','symbol', 'quot', 'base', 'side', 'price', 'target', 'closed', 'id']]
+
     return df
 
 def getBinanceTickersDataFrame():
     keys = API_keys("../keys.txt")
     binance = Binance(keys.binance_apiKey, keys.binance_api_secret)
     prices = binance.client.get_ticker()
+
     df = pd.DataFrame(prices)
 
     df['base'] = df.symbol.str.extract(r'(.+(?=BTC$|USDT$|BNB$|ETH$))', expand=True)
@@ -53,33 +60,38 @@ def getBinanceTickersDataFrame():
     return df
 
 
-#dfTickers = getBinanceTickersDataFrame()
-#dfTickers.to_csv('allTickers.csv', sep=';')
+dfTickers = getBinanceTickersDataFrame()
+dfTickers.to_csv('allTickers.csv', sep=';')
 
 dfTickers = pd.read_csv('allTickers.csv', sep=';')
 dfTickers = dfTickers[['symbol','base','quot','bidPrice','askPrice']]
 print(dfTickers)
 
+df_Cqs = cqsMsgToDataFrame(cqsGet_Msg(limit=5000))
+df_Cqs.to_csv('cqsData20000.csv', index=0, sep=';')
 
-#df_Cqs = cqsMsgToDataFrame(cqsGet_Msg(limit=20))
-#df_Cqs.to_csv('cqsData20000.csv', sep=';')
 df_Cqs = pd.read_csv('cqsData20000.csv', sep=';')
 print(df_Cqs, '\n')
 
-#str.extract(r'([^,\.]*)[,\.]+(.*)', expand=True)
-df_Cqs[['quit','base']] = df_Cqs.symbol.str.split('_').str
-print(df_Cqs, '\n')
+dfClosed = df_Cqs[(df_Cqs.side =='close') & df_Cqs.closed == 1]
 
-df_Cqs['closed'] = df_Cqs.duplicated(subset = 'id', keep = 0 )
-print(df_Cqs, '\n')
+dfClosed['profit_in_$'] = dfClosed.target / 10.0
 
-dfClosed = df_Cqs[(df_Cqs.side =='close') & df_Cqs.closed == 1 ]
 print(dfClosed, '\n')
+print(dfClosed['profit_in_$'].sum(), '\n')
+
 
 dfOpen = df_Cqs[(df_Cqs.side =='buy') & (df_Cqs.closed == 0)]
 print(dfOpen, '\n')
 
-sumProfitClosed = dfClosed[dfClosed.side == 'close'].sum().drop(['side', 'id'])
-print(sumProfitClosed)
+dfResult = pd.merge(dfOpen, dfTickers, how='inner', on=['quot', 'base'])
+dfResult['profit_in_%'] = (100.0 / (dfResult.price / dfResult.bidPrice) ) - 100.0
+
+dfResult['profit_in_$'] = dfResult['profit_in_%'] / 10.0
+dfResult.to_csv('dfResult.csv', index=0, sep=';')
+
+print(dfResult, '\n')
+print(dfResult['profit_in_$'].sum(), '\n')
+
 
 print('\n', 'End')
