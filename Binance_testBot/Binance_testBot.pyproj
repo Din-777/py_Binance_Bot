@@ -49,7 +49,7 @@
     <Content Include="requirements.txt" />
   </ItemGroup>
   <ItemGroup>
-    <Interpreter Include="..\..\Din-777\py_Binance_Bot\env\">
+    <Interpreter Include="..\env\">
       <Id>env</Id>
       <Version>3.7</Version>
       <Description>env</Description>

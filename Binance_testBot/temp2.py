@@ -16,6 +16,10 @@ df = pd.DataFrame([['close', 100, 0],
 df['closed'] = df.duplicated(subset = 'id', keep = 0 )
 print(df, '\n')
 
+df = df.drop(df[(df.target == 100) | (df.target == 105)].index)
+print(df, '\n')
+
+
 dfClosed = df[df.closed == 1 ]
 print(dfClosed, '\n')
 
@@ -25,6 +29,5 @@ print(dfOpen, '\n')
 sumProfitClosed = dfClosed[dfClosed.side == 'close'].sum().drop(['side', 'id'])
 print(sumProfitClosed)
 
-dfConsolidat
 
 print('end')
