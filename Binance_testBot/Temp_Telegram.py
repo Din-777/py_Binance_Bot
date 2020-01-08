@@ -21,21 +21,17 @@ class Telegram(Thread):
 			mess_mess=event.message.text
 			mess_name=event.message.chat.username
 			mess_date=event.message.date
-	
-			#print(mess_date.strftime("%d-%m-%y %h:%m"))
-			#print(mess_name)
-			#print(mess_mess+"\n\n")
 
-			mess_lines = mess_mess.lower().split('\n')
-			if mess_lines[1][:3] == 'buy' and mess_lines[0].find('binance')!=-1:
+			mess_lines = mess_mess.split('\n')
+			if mess_lines[1][:3] == 'BUY' and mess_lines[0].find('BINANCE')!=-1:
 				self.symbol = mess_lines[0].split('`')[1][1:]
 				s = self.symbol.split('_')
 				self.basecurrence = s[0]
 				self.quotecurrence = s[1]
-				self.target = float(mess_lines[1].split('`')[1])				
-				self.symbol = self.symbol.replace('_', '')
+				self.buy = float(mess_lines[1].split('`')[1])
+				self.target = float(mess_lines[2].split('`')[1])
 
-				self.even_thandler(self, self.symbol, self.basecurrence, self.quotecurrence, self.target)
+				self.even_thandler(self, self.basecurrence, self.quotecurrence, self.buy, self.target)
 
 		self.client.start()
 		self.client.run_until_disconnected()

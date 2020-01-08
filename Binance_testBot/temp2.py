@@ -1,33 +1,33 @@
-import time
-from threading import Thread
 
-from Temp_Telegram import Telegram
-from Temt_Utils import API_keys
-from Models import Orders
-from Temp_Binance import Binance
+from collections import namedtuple
+from Models import Orders, Tickers
+import pandas as pd
+
+df = pd.DataFrame([['close', 100, 0],
+				   ['buy', 101, 1],
+				   ['buy', 102, 2],
+				   ['close', 1.5, 1],
+				   ['buy', 103, 3],
+				   ['buy', 104, 4],
+				   ['close', 1.5, 4],
+				   ['buy', 105, 5],
+				   ['close', 1.5, 5]], columns=['side','target','id'])
+
+df['closed'] = df.duplicated(subset = 'id', keep = 0 )
+print(df, '\n')
+
+df = df.drop(df[(df.target == 100) | (df.target == 105)].index)
+print(df, '\n')
 
 
-orders = Orders()
+dfClosed = df[df.closed == 1 ]
+print(dfClosed, '\n')
 
-def telegram_msg_thandler(self, symbol, basecurrence, quotecurrence, target):
-	orders.ordersBuy[symbol] = orders.order(symbol, target)
+dfOpen = df[(df.side =='buy') & (df.closed == 0)]
+print(dfOpen, '\n')
 
-	print(orders)
-
-def binance_ticker_thandler(self, ticker):
-	print(ticker)
+sumProfitClosed = dfClosed[dfClosed.side == 'close'].sum().drop(['side', 'id'])
+print(sumProfitClosed)
 
 
-keys = API_keys("../keys.txt")
-
-tele = Telegram(keys.tl_id, keys.tl_sec, telegram_msg_thandler)
-tele.start()
-print('Telegram Run')
-
-binance = Binance(keys.binance_apiKey, keys.binance_api_secret, binance_ticker_thandler) 
-print('Binance Run')
-
-while 1:
-	pass
-
-print('ads')
+print('end')
