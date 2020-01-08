@@ -6,10 +6,13 @@ cffi==1.13.2
 chardet==3.0.4
 constantly==15.1.0
 cryptography==2.8
+cycler==0.10.0
 dateparser==0.7.2
 hyperlink==19.0.0
 idna==2.8
 incremental==17.5.0
+kiwisolver==1.1.0
+matplotlib==3.1.2
 numpy==1.18.0
 pandas==0.25.3
 pip==19.3.1
@@ -19,10 +22,10 @@ pyasn1-modules==0.2.7
 pycparser==2.19
 PyHamcrest==1.9.0
 pyOpenSSL==19.1.0
+pyparsing==2.4.6
 python-binance==0.7.4
 python-dateutil==2.8.1
 pytz==2019.3
-pywin32==227
 regex==2019.12.20
 requests==2.22.0
 rsa==4.0

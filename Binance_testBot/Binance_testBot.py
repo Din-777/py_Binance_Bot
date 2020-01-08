@@ -37,7 +37,6 @@ tele = Telegram(keys.tl_id, keys.tl_sec)
 tele.start()
 while not tele.client._authorized:
 	pass
-
 print('Telegram Run')
 
 orders.loadOrders()

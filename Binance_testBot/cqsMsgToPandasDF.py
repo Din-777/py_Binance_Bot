@@ -1,5 +1,6 @@
 from telethon import TelegramClient, sync
 import pandas as pd
+import matplotlib.pyplot as plt
 
 from Temp_Binance import Binance
 from Temt_Utils import API_keys
@@ -43,8 +44,8 @@ def cqsMsgToDataFrame(messages):
     df['base'] = df.symbol.str.split('_', 1).str[1]
     df['closed'] = df.duplicated(subset = 'id', keep = 0 )
     df = df[['date','symbol', 'quot', 'base', 'side', 'price', 'target', 'closed', 'id']]
-    df = df.drop(df[(df.side == 'close') & (df.closed == 0)].index)    
     df.index = pd.RangeIndex(len(df.index))
+    df = df.drop(df[(df.side == 'close') & (df.closed == 0)].index)
 
     return df
 
@@ -57,6 +58,7 @@ def getBinanceTickersDataFrame():
 
     df['base'] = df.symbol.str.extract(r'(.+(?=BTC$|USDT$|BNB$|ETH$))', expand=True)
     df['quot'] = df.symbol.str.extract(r'(BTC$|USDT$|BNB$|ETH$)', expand=True)
+    df = df.dropna()
 
     return df
 
@@ -68,12 +70,11 @@ dfTickers = pd.read_csv('allTickers.csv', sep=';')
 dfTickers = dfTickers[['symbol','base','quot','bidPrice','askPrice']]
 print(dfTickers)
 
-#df_Cqs = cqsMsgToDataFrame(cqsGet_Msg(limit=5000))
+#df_Cqs = cqsMsgToDataFrame(cqsGet_Msg(limit=10000))
 #df_Cqs.to_csv('cqsData20000.csv', index=0, sep=';')
 
 df_Cqs = pd.read_csv('cqsData20000.csv', sep=';')
 
-df_Cqs = df_Cqs.drop(df_Cqs[(df_Cqs.side == 'close') & (df_Cqs.closed == 0)].index)
 print(df_Cqs, '\n')
 
 df_Cqs.date = pd.to_datetime(df_Cqs['date'], format='%Y-%m-%d %H:%M:%S')
@@ -83,8 +84,16 @@ dfClosed = df_Cqs[(df_Cqs.side =='close') & (df_Cqs.closed == 1)]
 #dfClosed = dfClosed.groupby(['quot']).size().reset_index(name='count').sort_values(['count'], ascending = 0)
 
 dfClosed['profit_in_$'] = dfClosed.target / 10.0
+dfClosed = dfClosed[dfClosed.quot == 'USDT']
+
+dfClosed['count'] = dfClosed['symbol'].value_counts()
 
 print(dfClosed, '\n')
+dfClosed = dfClosed.sort_values(ascending = False)
+
+print(dfClosed, '\n')
+dfClosed.plot(kind='bar', figsize=(12, 9))
+plt.show()
 print(dfClosed['profit_in_$'].sum(), '\n')
 
 dfOpen = df_Cqs[(df_Cqs.side =='buy') & (df_Cqs.closed == 0)]
@@ -94,16 +103,13 @@ dfResult = pd.merge(dfOpen, dfTickers, how='inner', on=['quot', 'base'])
 dfResult['profit_in_%'] = (100.0 / (dfResult.price / dfResult.bidPrice) ) - 100.0
 
 dfResult['profit_in_$'] = dfResult['profit_in_%'] / 10.0
-dfResult.to_csv('dfResult.csv', index=0, sep=';')
+#dfResult.to_csv('dfResult.csv', index=0, sep=';')
 
 print(dfResult, '\n')
 print(dfResult['profit_in_$'].sum(), '\n')
 
-import matplotlib.pyplot as plt
 
-new_sample_df = dfResult[ ['date', 'profit_in_$'] ]
-new_sample_df.index = new_sample_df.date.dt.day
-new_sample_df.plot(figsize=(12, 9))
+#dfClosed.plot(x='symbol',y='profit_in_$', kind='bar', figsize=(12, 9))
 plt.show()
 
 print('\n', 'End')
