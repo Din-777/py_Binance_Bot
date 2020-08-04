@@ -1,9 +1,9 @@
 import time
 from threading import Thread
 
-from Temp_Telegram import Telegram
-from Temp_Binance import Binance
-from Temt_Utils import API_keys
+from Telegram import Telegram
+from Binance import Binance
+from Utils import API_keys
 from Models import Orders, Tickers
 
 orders = Orders()
@@ -30,7 +30,6 @@ def binance_ticker_thandler(self, msg):
 					print('BUY ', symbol)
 					orders.ordersBuy[symbol]=orders.ordersBuy[symbol]._replace(DCALivel=1)
 
-
 keys = API_keys("../keys.txt")
 
 tele = Telegram(keys.tl_id, keys.tl_sec)
@@ -48,4 +47,3 @@ print('Binance Run')
 
 
 print('Bot Run')
-

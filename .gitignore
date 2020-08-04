@@ -10,6 +10,7 @@
 *.session-journal
 session_name.session
 session_name.session-journal
+*.csv
 keys.txt
 env_3.7_32/
 env/

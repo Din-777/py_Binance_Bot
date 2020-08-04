@@ -1,7 +1,7 @@
 from binance.client import Client
 from binance.websockets import BinanceSocketManager
 
-from Temt_Utils import API_keys
+from Utils import API_keys
 
 class Binance(object):
 	

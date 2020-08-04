@@ -4,7 +4,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>a43b3754-1a3a-42ff-88b9-80e4af3f5439</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>cqsMsgToPandasDF.py</StartupFile>
+    <StartupFile>getHistorKlines.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -28,20 +28,20 @@
     <Compile Include="cqsMsgToPandasDF.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Temp.py">
+    <Compile Include="getHistorKlines.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="temp2.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Temp_Binance.py">
+    <Compile Include="Binance.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Binance_testBot.py" />
-    <Compile Include="Temp_Telegram.py">
+    <Compile Include="Telegram.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Temt_Utils.py">
+    <Compile Include="Utils.py">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>

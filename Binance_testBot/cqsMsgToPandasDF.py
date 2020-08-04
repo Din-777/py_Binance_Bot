@@ -2,8 +2,8 @@ from telethon import TelegramClient, sync
 import pandas as pd
 import matplotlib.pyplot as plt
 
-from Temp_Binance import Binance
-from Temt_Utils import API_keys
+from Binance import Binance
+from Utils import API_keys
 
 def cqsGet_Msg(limit=20000):
     keys = API_keys("../keys.txt")
