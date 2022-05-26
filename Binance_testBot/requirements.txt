@@ -30,7 +30,7 @@ service-identity==18.1.0
 setuptools==42.0.2
 six==1.13.0
 Telethon==1.10.9
-Twisted==19.10.0
+Twisted==22.4.0
 txaio==18.8.1
 tzlocal==2.0.0
 urllib3==1.25.7
